@@ -23,10 +23,8 @@ public class HelperMethods {
         //5.3MB file in UTF-8 Encoding, ~5.4 million characters
         //https://www.gutenberg.org/ebooks/100
         String url = "https://s3.amazonaws.com/dl4j-distribution/pg100.txt";
-        //String url = "https://sherlock-holm.es/stories/plain-text/cano.txt";
         String tempDir = System.getProperty("java.io.tmpdir");
-        String fileLocation = tempDir + "/SherlockComplete.txt";
-        //String fileLocation = tempDir + "/Shakespeare.txt";	//Storage location from downloaded file
+        String fileLocation = tempDir + "/Shakespeare.txt";	//Storage location from downloaded file
         File f = new File(fileLocation);
         if( !f.exists() ){
             FileUtils.copyURLToFile(new URL(url), f);
@@ -50,7 +48,7 @@ public class HelperMethods {
      * @param net MultiLayerNetwork with one or more GravesLSTM/RNN layers and a softmax output layer
      * @param iter CharacterIterator. Used for going from indexes back to characters
      */
-    public static String[] sampleCharactersFromNetwork(String initialization, MultiLayerNetwork net,
+    private static String[] sampleCharactersFromNetwork(String initialization, MultiLayerNetwork net,
                                                         CharacterIterator iter, Random rng, int charactersToSample, int numSamples ){
         //Set up initialization. If no initialization: use a random character
         if( initialization == null ){
@@ -102,13 +100,19 @@ public class HelperMethods {
      * @param distribution Probability distribution over classes. Must sum to 1.0
      */
     public static int sampleFromDistribution( double[] distribution, Random rng ){
-        double d = rng.nextDouble();
+        double d = 0.0;
         double sum = 0.0;
-        for( int i=0; i<distribution.length; i++ ){
-            sum += distribution[i];
-            if( d <= sum ) return i;
+        for( int t=0; t<10; t++ ) {
+            d = rng.nextDouble();
+            sum = 0.0;
+            for( int i=0; i<distribution.length; i++ ){
+                sum += distribution[i];
+                if( d <= sum ) return i;
+            }
+            //If we haven't found the right index yet, maybe the sum is slightly
+            //lower than 1 due to rounding error, so try again.
         }
-        //Should never happen if distribution is a valid probability distribution
+        //Should be extremely unlikely to happen if distribution is a valid probability distribution
         throw new IllegalArgumentException("Distribution is invalid? d="+d+", sum="+sum);
     }
 

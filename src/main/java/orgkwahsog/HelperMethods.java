@@ -48,7 +48,7 @@ public class HelperMethods {
      * @param net MultiLayerNetwork with one or more GravesLSTM/RNN layers and a softmax output layer
      * @param iter CharacterIterator. Used for going from indexes back to characters
      */
-    private static String[] sampleCharactersFromNetwork(String initialization, MultiLayerNetwork net,
+    protected static String[] sampleCharactersFromNetwork(String initialization, MultiLayerNetwork net,
                                                         CharacterIterator iter, Random rng, int charactersToSample, int numSamples ){
         //Set up initialization. If no initialization: use a random character
         if( initialization == null ){

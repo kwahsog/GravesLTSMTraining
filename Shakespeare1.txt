@@ -1,0 +1,737 @@
+Params:
+        int lstmLayerSize = 200;
+        int miniBatchSize = 32;	
+        int exampleLength = 1000;
+        int tbpttLength = 50;
+        int numEpochs = 1;							
+        int generateSamplesEveryNMinibatches = 10;  
+        int nSamplesToGenerate = 4;					
+        int nCharactersToSample = 300;				
+        String generationInitialization = null;	
+
+Begin Example:
+Using existing text file at C:\Users\Alex\AppData\Local\Temp\Shakespeare.txt
+Loaded and converted file: 5459809 valid characters of 5465100 total characters (5291 removed)
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+Number of parameters in layer 0: 223000
+Number of parameters in layer 1: 321400
+Number of parameters in layer 2: 15477
+Total number of network parameters: 559877
+--------------------
+Completed 10 minibatches of size 32x1000 characters
+Sampling characters from network given initialization ""
+----- Sample 0 -----
+llee.
+  OoCLRNANU. Mooucherdyud oufbeess franthocg.
+  GnfRAMEN I.  hoom mingt shoerillsad; I bofyud theunetrercidt fone tigettaeld dikis.
+   Athess beduv theerdof, sher haceangeoworset,
+    theukse thrased,
+   seThethand fpasnld thive tord srove, Thederone thereild touch potsardtoventh
+    and couum,
+
+----- Sample 1 -----
+l,!
+   werw nowers willddocle, bubisdongudd me topond, thy fourunilogheinn.
+    Theeeeed's. Thimt thowe sonusle gerelig,
+   Whet younfherl.. Lemlthoude, momethin.
+   Ashewilld bowserghancksor, hop pontate, obe maddins frorust
+    Bkesh wholesiruone.
+  Fagery floy soud's.
+   Mould usmeeuod thils wowen
+
+----- Sample 2 -----
+l3p. heed; nath, srimepdlet notde
+    fourd Peofert.
+  TIRSV Worhyly mthk bewdlhee migcy thasls atutt. myous thilg ekent owers afvertse, ord;at;
+    That, se wheuk, dath go  hithengenptace,
+   csething were wilgofd bame detlun
+    Thace th leserhateand frithee dlerlit;
+    Chavo dhanog I
+    Whanlhes
+
+----- Sample 3 -----
+llod of and.
+   and lath youndeNLawese to withe spin'giule tithes'ie wy for pyacidd,
+    Thouldsthamgeses theebread woumedangin;
+    Theasheread thouprot. Ind theudw hit'
+
+  BNTENUF. Bilt and,
+    Whise,
+   Thatherre, yhofrecayl. Hesond.
+    whale I fiveshilseerof sfarngeucy, berinn
+
+   Pethoule dath
+
+--------------------
+Completed 20 minibatches of size 32x1000 characters
+Sampling characters from network given initialization ""
+----- Sample 0 -----
+-
+  TYICEG
+CART An. I came!
+    Heave a spien Suppoout, and my arieplecf;
+    Where a stull, Mergusimuct here thee wich,
+    Thel; be! KIRSEREREn
+     there not no de kond;
+    Yours, lothere semap,
+    And in not my sleisedain Fout there.
+    Thouess vake inof aParuhala sherby
+    PEaPHATETE. Mothar
+
+----- Sample 1 -----
+-PRITAN. Bostrest,
+    Sarve manrathecanc. Poat gress's sice? This wlen
+    Yot no wieliy.
+
+                  Ender SAABtER
+
+                         Exingio; your oD,,
+    And wirn to me is the pucind;
+    And godile, I have vy elore sour
+                           Entirg.
+  EENANE.. Nidd evihere he
+
+----- Sample 2 -----
+- ETher
+     That should maghtentle her. DY what maye tour,
+  my fally, should swerdle ghies'speved in andofgen;
+    Lound, ete.
+  GINTERSON. A thead
+    In enthery mant with mes liis, stuen'l.
+    I laktess feorsing encear offer'l's; in;
+    Medling for I cheaty, wollodtus of CumpomtEste;
+    And tl
+
+----- Sample 3 -----
+-qYO,
+  OVES. A. Gowese,
+    What thould! Led be so cin.
+    Bewtonbt wele that old to and, lold Rukising,
+    Whalld mup, gasees amerandes, and cusp
+    Lyour. Tore for comapdaoos,
+    Bote yow mesobey.
+    MI would I awe hisnent wouedech I madsur,
+    Geecd, herecone, ay; unto averyele,
+    I weld 
+
+--------------------
+Completed 30 minibatches of size 32x1000 characters
+Sampling characters from network given initialization ""
+----- Sample 0 -----
+K, a hony atrust aid, us not wife houll dan.
+    ForcI I wmar, are are of wornts spaly caversedy
+
+  Mar. To firin, thoucers, well I let I what you carsind; hive of I him wesen of where
+    For the tere live a gowr.
+ 
+LYEPE. Py, no
+    Cressice and enert, was the bein thee!
+  BOMEBE. Fyrey.
+  Eust. So
+
+----- Sample 1 -----
+Ken and last; hhat, furse from vermy clonceswax swalk.
+  IFG. Ane my life yin brove min areel cam,
+    Oo helr ey-one ling be my lorg,
+    Whrcheat'rt titnt abe thes past well briefust
+  SATOBY. I have I mil sold you true, Glee, that lord, sore,
+    Mear thay ear thouss lemany floch me aw iflare doma
+
+----- Sample 2 -----
+Kire, sires. Sich mow not wrice leven of helve to be wher I speer
+    cads toment notblous from our him nead!
+  Yet you, mone shall enf have thie, for wir!
+    I mal the slare or thry if her freth,
+    Of I't Faste, lord a ouler, and briek? a dist my pettecies and
+    Caet seld, goich yourgating come
+
+----- Sample 3 -----
+K a cart un to guest of thre gave
+    Wito my herese and a shy.
+  SASEUB. Go you storm, 'tery, good no re, ame.
+  HILTA. Purice.
+                    Enter SELIISs Fartt.
+
+    Wibell, to this; Evern! Hadn your woush sume.                           Exeur PERITIS,
+    Ant is as soble my mant
+    A thric
+
+--------------------
+Completed 40 minibatches of size 32x1000 characters
+Sampling characters from network given initialization ""
+----- Sample 0 -----
+Kweres in the provencled deeprastaths him.
+  PAKE, and ter, my meads this O tidel; Dist
+    Shall and merther not shill not of you, 'puse for the not,
+    In heve is the his.
+  Lit. My hand stard intleden but not exept.
+    Cever be you, mcres, I am but?
+  CENINIUS. I will shifl to puchible is'd kito
+
+----- Sample 1 -----
+Knes our and sends hise,
+    To at dive in wlat he courd out iffett him greas
+    To might age the rast beard my boud,
+    Did his vust ought now doand. Pract a llitur untrowred
+    Be not part plome!
+  TAGUS. Let in crush you engarsw.
+  UHENIUS. Ungard and if'd thus shalf his dilur'd to his light?
+ 
+
+----- Sample 2 -----
+K's maded rescres?
+  CISS KENY. I some of wooning the thane, bere surf and the fight.
+  LACBERIR, T Bi, reave, Such as he camty and praves
+    Then be this ne's your heair triach, to sprafty,
+    Rout so begle acfemt. The Thrihfor gives'd-
+    Debav the behelf'lidg  Host but I bmsterment
+    The she 
+
+----- Sample 3 -----
+K, pritbther shall will lave
+  , watker hit whose a preeble of Thy legs that I hises?
+  Yuu his head let us. Why, lend I will not,
+    breat be for a truein drown to be, you are gragius
+    Nor not preacy tan the him inron a belongeriam,
+    Have or that predcentiful dose incress;
+    The pourmmy inc
+
+--------------------
+Completed 50 minibatches of size 32x1000 characters
+Sampling characters from network given initialization ""
+----- Sample 0 -----
+ADDERcE Till, RORINANO. Madent come,
+    So may sautions but the grace.
+    Whot o twit up the cleatarms, who knew mnckel!
+    Go is not, with figur dettly to heaver power 
+    Anst it from getat bare were, but show
+    You art fift to sin stroy he voody,
+    Put women, I fought, sevice's man hen pir
+
+----- Sample 1 -----
+AcBoR. Let soll, or,
+    To gaise of little stafony a lignds?
+  URIUS, FARGEN. He, by the most lagh a fout
+    Ontugony my lord-land judbmuc'd to thoue
+    Let here the sold rathy is tor for seR ampion
+    Lack?
+
+             ExtEnt ded of EERANSTON anot ELANLEBUTTOPERONGER CORMILLANES WERDENTIANE
+
+
+
+
+----- Sample 2 -----
+ATturs FUELS Spliable
+  BUCKINS LEUNLETKE. Eye score will come be hence.
+
+  fLefr. CAve, betheating'd beF whereic th' pesend,
+    How not not wereanty vight'red.
+  MESTARGrAMINE. I il; but I am not
+    As he reachers
+    Heth, know of mE, reamd with turn a gentlame as so.
+     And, shorts to lirg the
+
+----- Sample 3 -----
+Ak.
+  Anboundar, and you shall heal stain!
+    And our my word, arier dades as to humy.
+  Her. That grot itser's is prick whicK you towe
+    cield with homessilon but anscharsh,
+    As thou deantas, pleast the controbpes anvland'd minesers
+    day Lat day ho! a doth but it me!
+                 king t
+
+--------------------
+Completed 60 minibatches of size 32x1000 characters
+Sampling characters from network given initialization ""
+----- Sample 0 -----
+Custhil's pray of upway
+    As nuture unfort, they paterad nead?
+  KING HENDY. And she Falming, sword, her, lord.
+  Rome. By his charke,
+                                                Exeunt. May Pomaniay it of court,
+    Thut I those gown thowe earse, Rome, stend as goven to
+D COMILES OF MACHARH. B
+
+----- Sample 1 -----
+CHESSER. A TaN? Pring'd, stend thy deay;
+     Wouldy not that imped dAry?
+    O Agre Homety.
+  Bene. Landon?
+  FALSTAFF. What a shall be kingent of against you,
+  SHankman! What, say, broww'dd thiny ingonench Charm, he shall;
+    We in upon mortose bear you like
+    Where, done.
+  FALSTAFF. What warr
+
+----- Sample 2 -----
+CUMIANIGan BARDS
+BALUS. What, other, egringle they.
+  PASTAGUS. The pruwer's thee lent think his love;
+    Thou art some oween a pray abret no dignial, thou way
+    myself it at by noble brothes, burk,
+    And sobeds! you servilier away.
+    A seiges in the abour, her,
+    Fire of pebpolious. Noked, 
+
+----- Sample 3 -----
+Catusor blay,
+  Being her but the oaturaits therefore but in my
+    'twoLly
+    smust engellemarty, to keep chackip.
+  IATIBIO. In wratch; and from their fattel!
+  may lent suns, Ullich 'a dow'r hand.
+  COgn, and mine us Tutus did my fatce's sant
+    As draw his fulst!
+
+                              
+
+--------------------
+Completed 70 minibatches of size 32x1000 characters
+Sampling characters from network given initialization ""
+----- Sample 0 -----
+GE- Me rard it pray his blord.
+    The other will the courtry his heard.
+    Glooked he is done of her atters knemage, and in the honour
+    Nor shame to or heps of good that doe not undery.
+    Lost as the heaph.                             Exit
+
+S, ELANON. Dorst, this save hath heaven sou; for I po
+
+----- Sample 1 -----
+GUCHILTINE. AGHIM
+    And frad up defels and to be pleasure ition;
+    You sisser; there's rekent prisure yey an sparithless. O,
+    Fool I thind he usmand, he is to ars- hath might impany
+    in a haipnour attity remolence, and thou art are again. From lows
+    in every do theer time icruot the swee
+
+----- Sample 2 -----
+GLEPATRA. O head me to give Emper to Nejothy;
+    hithough our amt netter and all othery gaves!
+    Are ye not youmbeant of lord.
+    That to a very pay it, as away. I, too. Hasting was I canyer leome, and
+    his done. I will dead thy repartm you knows slave,
+    In cros'd his piecchmon as so anser,
+
+----- Sample 3 -----
+G; car till with conders is
+    a othing my suck'd ads should sades how I knave cause!
+  TIROLLOF Ro. Nau; ho, come to the peaped repormon.
+  KING RISA. But I day doe, lefer, say that it sunsed.
+  BOs GAN:TIHAR. Wit, thou art overalle.
+  AURONIIA. shall be as from thee, Gien' kee.
+  IANO. Never for c
+
+--------------------
+Completed 80 minibatches of size 32x1000 characters
+Sampling characters from network given initialization ""
+----- Sample 0 -----
+ARICE OF DUTHER BOTHEPROBE
+
+  KING HENRER.  The CRiecchas me. Who seel-be rans with a tame.
+  CHARLINA. Help their dulanes
+    Wilder gentlewands. Ere no for Costuis?' what I not for Duke but three eyes,
+    'tis the sweet new be deward. thou stan his press Point,
+    Which I emerfous the real done, 
+
+----- Sample 1 -----
+AND MARSION cord gat to Si' of least
+    And Rose that Awilant's arry some eye,
+         Exeter, acture, Espane
+
+           Who sees these hand kill be disperse we sweat
+                           Hie, Which shath this very friends,
+    'Tis the such such pucks of Lord worpasing
+    Your heart holour
+
+----- Sample 2 -----
+AND How I'll reven us.
+  Lear. Which you do may then on their trunted of thine recurue's intomy
+    To my heart; sweet hold only thou?
+  CLIFFORD. Ay, for Unreaple came be to me
+    .  That you, heavy it such thy feeble from thy
+    awakes insot.
+ADRICHOMENETER. Our Prisse give you chake the cupty es
+
+----- Sample 3 -----
+ANTORLO. I with all their Vouserad of captart,
+    A fanteng dare me with the saw, the fash viigact.
+  Lanco. To be should never till on you wilt us
+    Your wasts
+    You wrong!
+  KINGh. If but, brother, awake and broth flech me;
+    My our From chiid where ass. Thy plouftite than lord,
+    Shall I 
+
+--------------------
+Completed 90 minibatches of size 32x1000 characters
+Sampling characters from network given initialization ""
+----- Sample 0 -----
+, it so, so be manancess to that pown
+    Whereise. From beight as the knee, or savo, home suching that cestions de.
+    Your open, mouth granger of us batty.
+                                            Exit and will coaring in the fence,
+    To know your torgues, an- I do cleaunts them-
+  SWor. 'Twi
+
+----- Sample 1 -----
+, and down a will end
+    An at vigarour'd nobivelless of
+    Whonour'd for court; my tlimber 'twilt since
+    Whose couson fetch being upon mind.
+  TERDANO. My lord? The is snuch but conquerd the aU at officelmible abp'd
+    To stool be.
+  Cap. I should non gave his witter-leaty, weae stay you
+    O
+
+----- Sample 2 -----
+, let me you all alas.
+    I canst as your degriony, and my fire, and;
+    And one say at it death for your aNver fore
+    The matter to plour, aways my vool to high to at out
+    To wound of teavs on your palach shooks thee,
+    Another he stood of your doush in offeling
+    Old sender of the part i
+
+----- Sample 3 -----
+, the weach in spring achop'd
+    Since that the which are have stands of 
+    BUCLEDY
+  ! He is you she that how to been me trence; I say to a
+    we are to boy; now for the fear of wakea to Make
+    Though the known behind, th stick our boving
+    You?
+    Must de your that and mothies envouth os m
+
+--------------------
+Completed 100 minibatches of size 32x1000 characters
+Sampling characters from network given initialization ""
+----- Sample 0 -----
+VERS O, God, in Benmish, Gentlewell!
+  ORLANDO. Ay, wilt roin con. Amigius; Hund hearn our wit former;
+    Wuthan I have from heard upon the prichoors,
+    And his fire; he shall all strike to for his little worth
+    of the good of legs. Is her faith, as
+    His colone, of 'twearted the news! Then t
+
+----- Sample 1 -----
+VIAN. For dost my sorrow, this hearth in a day be,
+    you but so. Leing please my hearthing purbony?
+    See the Beform ? I 
+    To opear thee must come that than comes,
+    Then lest hit falliw ite that is upon the cried day
+    Awid a mouth'd philotrhas, of master! Is I speak you all abexish'd
+   
+
+----- Sample 2 -----
+VINGELO SENATIDUCH and MARDES
+
+  SUCLOND. Abains' their unwors; ourself, unclience, for how brook, corestan
+    grows of his wart-with hisselfon thee, Palet.
+  PROVEST. Sif was me our high 'tis well on a pacigiance.
+    Monstantis' how but hovese the snaed. 'Tis you purcisbment.
+     Withorath shall 
+
+----- Sample 3 -----
+Vendly came
+    His Sonst eak a hill upon this sanes,
+    Which I may say you to calauty! thou have must gentle aveil, by himself.
+    She will this usuring tcuty, my master. And who more husbeect.
+    I not that we love the house for sitrer.
+
+                                                Enter TOR
+
+--------------------
+Completed 110 minibatches of size 32x1000 characters
+Sampling characters from network given initialization ""
+----- Sample 0 -----
+ation puy where.
+    And I. O save her womons to my madesting
+    Ie to his hill ride your blood boins, I'll not paise-
+    I neem not antwear no mert.
+  Loot. I crid'st to the by prome you of the Wood of marrides from him
+    cloy will enroker then of the moots regron,
+    Becpeaties have name of or
+
+----- Sample 1 -----
+ain, a constrant in frierd,
+    With the brow ye hath things in men thou in the sword,
+    Or twas by the fountains.
+  Ham. Thus now the late affect:
+    And now? On his slaughte from Even than you!
+  PETER.  Again! hath mef you shall sat your hearts and counself
+    Drowd'd put the hearts of our vil
+
+----- Sample 2 -----
+as!
+
+           Rouding Housing is sinks and woman to this Proeccon,
+    And pardies upon mading to this laarion may
+    And, and on Bally stremb be; sir?s
+    He hath matty free good play but may faults
+    you mak, we do but well. At the tects chath'st I have
+    Norsull me. Why, and here that 'tis
+
+----- Sample 3 -----
+aring's sigh of you;
+    That is sons foul grip Cupingants, what knows,
+    And come give me leave the arrow, strength here;
+        God got clown frime instranger of their lood
+    To your perseft fevormen have beglacist.
+
+                                       Exeunt Lil's. God from be world.
+  KIN
+
+--------------------
+Completed 120 minibatches of size 32x1000 characters
+Sampling characters from network given initialization ""
+----- Sample 0 -----
+Wern. With awlands had young Brisdembt
+    On the clount no charge speedh
+    Her father considers that now of Bennema; and my actings.
+    A mar to det of honour lords
+    They 
+    His free wherefore?
+  LESNOT. They would theat of his gnets the faind; and full on that
+    a mill; they ter slrown ma
+
+----- Sample 1 -----
+Wear; I will be my cherity comely murdage,
+    your greasers, and sumper shall presently hapfitigers.s
+    For proragiins and trale's none; and frair that
+    Thus had in the strome to the Roman honour.
+     Should I laddersing are married; lad I am it that as away an Ambear
+    Any will accause of i
+
+----- Sample 2 -----
+WIND. Wolk the Marbinauterous. But Lord hath,
+    Who great a supficvers, Frencence, I wake by me
+    Whose mad most fatners do liege to become the encew much you
+    this worsting for the Yorth! there I have no anothing all in forget.
+  Lall. Tray and his seagally! I flather the croys guil,
+    The 
+
+----- Sample 3 -----
+Wake that glad we nests
+    Edats reselve him enrestrain; how there shall kind, you, place?
+  MRS. PAROLLE. Hasty grouried, let not well, etter I noth. This Vomberant liver glad ham the gaten,
+    very before ill as there are he should chatge himself
+       The gold lef me?
+  THEUSIO. A dreams, this 
+
+--------------------
+Completed 130 minibatches of size 32x1000 characters
+Sampling characters from network given initialization ""
+----- Sample 0 -----
+8things I am sure a name in
+    Prayers. I tell thee; come, Unoke, to have him to ;
+    The bring ourselves part of the tenst bets removing
+    And speak alminst me; and pro'd he himsell; let not a milien so
+    hath unto some boy.
+    A foolion's grate! go the father therefore,
+    Will Beditius mus
+
+----- Sample 1 -----
+8, do be a pow'rs. 
+  GLOUCESTER. I am in this hair wide I sent his kind.
+  VALENTINE. But alaring Letit, and these work hath
+    both from the whis fill in a conton as fair, I wait
+    strick other yet hear me upon his heart;
+    Dome Annelight! This good Throne: shall be poins!
+    The get your tru
+
+----- Sample 2 -----
+8
+    I am clearent, hold doth th' ogeing lever rebeit
+    come whos 'whom dith thee their gaties of a killess to beauty.
+    Thunder, your inother his Morth forefore is much behing
+    like on that I do blackly help ta live her done.
+    King, if thou I bring that hath to be so carcy- I say?
+    Tri
+
+----- Sample 3 -----
+8man Phile, nor for grow me.
+    A foallly to by thy hage, thy witf-Ed: thou to high,
+    Like Blantion of gain and light the glame rehidse all;
+    To hol's old.
+  CLIDEN. They ho?
+  HERMIA. But tell me this from thou then be sets leatele me
+    To falls me some pleasion, and not bold Arch
+    With 
+
+--------------------
+Completed 140 minibatches of size 32x1000 characters
+Sampling characters from network given initialization ""
+----- Sample 0 -----
+well.
+  LEONTES. I shall detrine, bly thy heart.                           Exit
+  PISTOL. Give new or dispens's upurm'd. Comes set he knows
+    In life of go lith. Come, savise, I drebight;
+         To Caechoo water hern. To Iblawnet will tell you
+    Who the mistress, but years mother's barther.
+  P
+
+----- Sample 1 -----
+warce of earge you canst him ear
+    and capew affection that ill suck a cloaque
+    To like ther's wife; plaise you matter benity!
+  As I cannot got no moon.
+    The grow desire captainty hims,
+    Hath done your lord. 'You voud I are deed,
+    Shill be heard that go unpasty paven to love,
+    F or 
+
+----- Sample 2 -----
+watiLg prov in my wither;
+    Where's my sound Eghose very which! they shall be lip
+    Sinriths togets of earth, his beart thou do, not did from a nebd?
+    How now be their most vruen wilk I me.
+                                  Enter CaUpel lies, you no longer was not Messengs;
+    LoS an hosted m
+
+----- Sample 3 -----
+wing our sacrig
+    Or lives be conolit'd; if and cage' sormed
+    Go no more. O TITIA Feeding to Hampare his men, now,
+    For th' year, as metive is Greek is clean it.
+    For our dogual way hath beem'd
+    Whom was and be eppasant. O, Cromis King
+                                   GROMIA, can up t
+
+--------------------
+Completed 150 minibatches of size 32x1000 characters
+Sampling characters from network given initialization ""
+----- Sample 0 -----
+R, when Make were have beand
+    The unsut of Castlate.- So receive,
+    Servant a wrengel look add offligious, signiok,
+    Money heart discrotted to hours of thy coperul inbuse.
+    I. Should we had umon'd a stopbet prolition.
+    For that I'll unwill not morrows.
+  ARMADO. Tell his lord.
+  DOUPHOF
+
+----- Sample 1 -----
+R
+
+  MARCUS. O horse Voltumilus. Are there world, yet wrong. I harrent me not.
+  FORD. No thousand house, I do forgot, my brows Astolume?
+    There is no, we do reperlant.
+DRIANIO. At honor, remently, had you so
+    The rich pity, and through; I do will all the deem's,
+    Or disuly parroasl'd, lenge
+
+----- Sample 2 -----
+RIbARELY. SYVALY
+  ORLANDO. Tally her talking puck!
+    I will emy perceiv'd your very head I end' a
+    mode on Great. is not yet he did be make this play,
+    Then eatle own cherad and tuger art breads of
+    Or is out with the Duke of wins old damphrey.
+  Hot. Will I hear you hencower.
+  , or I kn
+
+----- Sample 3 -----
+REDESTIOR ONLYIA. LERYOCD PERDICTENET CHARIS INCIAD AN! IN) INCHIMONP. OR TOPTHIMERNE. COHLL AS. Ij'd borne:
+
+  ANTONY. O the tabes but left againnent
+    Cassing do the King,
+    As man ever to, he
+    I will know as decy
+    Our colf; be hotily
+    To be't a wench'd.
+    My act no bightesires
+    S
+
+--------------------
+Completed 160 minibatches of size 32x1000 characters
+Sampling characters from network given initialization ""
+----- Sample 0 -----
+Jul.
+  Score. I presame me
+    To rethee the bairs, ills    With good diids I'll sweet
+    Must virlies; then I bringled his smallowy
+    Shamous of the ULline.
+  MAN IWelGo.  To be with air,
+    And with you. I will die!               Enter ARTHUTa. At a found of Groops
+
+       the King will doth th
+
+----- Sample 1 -----
+JUSS hoods it he and rather.
+  BERINAGUS. Will you will we prison helpow you watch. They shows to dall
+    Our scuppose of Calenius.
+  VALENTINE. If well, Paterie?
+    If ha, yet have some the grace is circum-
+    Prince. He is rabers and did princess as in pown,
+    And overpossance and he met be go
+
+----- Sample 2 -----
+Jjj's night, shampering do broke eLORES enter the crofs one peness
+
+  LEONTe. till he comely?
+  ARLAS. And what is hest wore light  of Typt to makel or or,
+    Some to speaks a broken-than's repent,
+    And thou the prieve master speaker brooks
+    Tobelain and bound even e, soul,
+    un arms, as is 
+
+----- Sample 3 -----
+JUCH, tlou'st out soul
+    See; nor though he hath royal my nobmonion word!
+  Dum If she makes you like thee speak patity;
+    Some poper shall be soldiers victorms in Frantic
+    Spakish all their batishmy in bastard,
+    And yet even to his husbone to my
+    Triams of shiff; and must enterer your l
+
+--------------------
+Completed 170 minibatches of size 32x1000 characters
+Sampling characters from network given initialization ""
+----- Sample 0 -----
+our sluffless hour.
+    Gad bid him usurp- That pointy love, garments,
+    Than shart but know me by the unwash'd that walls himself.
+    Sir, when broken you upon off good aid.
+    What a sagep of Franch behold you?
+  Friar. Our Havin, where in arus are confirming;
+    Stay what castle fall putmor's
+
+----- Sample 1 -----
+on.
+
+                                                          Exouning never paty in enal Glastible
+
+Enter ARTHUR all offers, MORIVIUS
+ and so the watchis time lap wy struet? Why, more times she
+    What we will tall thee     join of heaven!
+  DIOTELDIOK. Nay in heav'nsoff you, Lord Gracius,
+    As 
+
+----- Sample 2 -----
+ord is but that ever or eat
+    contempt youth. 'Twas you give Never straight.
+    And, if you shall wasted by onsite them thus? You have
+    deeds itself. What mother? Unpurest Lendon of mine eyes;
+    But let it it that he gatten'd-and great news.
+  ANGEW. Welcome, they are have kelding all attenda
+
+----- Sample 3 -----
+oundly than sempt me,
+    As the ill-virtue of sunceiching than madest.
+  TIMON. Ay; and all they are it, thy throat of my slander, and bany than talrowing thee. God,
+    a scarl- bring you coursematitigness him that,
+    but this streat in thy boy to be a secrets, and entertain
+
+    life.           
+
+
+
+Example complete
+Time elapsed (minutes):13
+
+Process finished with exit code 0

@@ -27,7 +27,7 @@ Set in pom.xml:
 <nd4j.backend>nd4j-native-platform</nd4j.backend>
 
 Changing to CUDA:
-Approx run time ~ 17 mins. (1 epoch)
+Approx run time ~ 15 mins. (1 epoch)
 Set in pom.xml:
 <nd4j.backend>nd4j-cuda-8.0-platform</nd4j.backend>
 https://developer.nvidia.com/cuda-downloads

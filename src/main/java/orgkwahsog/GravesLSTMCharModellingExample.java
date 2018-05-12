@@ -16,6 +16,7 @@ import org.nd4j.linalg.activations.Activation;
 import org.nd4j.linalg.api.ndarray.INDArray;
 import org.nd4j.linalg.dataset.DataSet;
 import org.nd4j.linalg.factory.Nd4j;
+import org.nd4j.linalg.learning.config.RmsProp;
 import org.nd4j.linalg.lossfunctions.LossFunctions.LossFunction;
 
 import java.io.File;
@@ -23,6 +24,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.nio.charset.Charset;
 import java.util.Random;
+
 
 /**GravesLSTM Character modelling example
  * @author Alex Black
@@ -40,13 +42,14 @@ http://deeplearning4j.org/usingrnns
 http://deeplearning4j.org/lstm
 http://deeplearning4j.org/recurrentnetwork
  */
+
 public class GravesLSTMCharModellingExample {
     public static void run() throws Exception {
 
         //15/04/2018: Add in timing:
         long startTime = System.nanoTime();
         int lstmLayerSize = 200;					//Number of units in each GravesLSTM layer
-        int miniBatchSize = 32;						//Size of mini batch to use when training
+        int miniBatchSize = 32;						//Size of mini batch to use when  training
         int exampleLength = 1000;					//Length of each training example sequence to use. This could certainly be increased
         int tbpttLength = 50;                       //Length for truncated backpropagation through time. i.e., do parameter updates ever 50 characters
         int numEpochs = 1;							//Total number of training epochs
@@ -65,14 +68,10 @@ public class GravesLSTMCharModellingExample {
 
         //Set up network configuration:
         MultiLayerConfiguration conf = new NeuralNetConfiguration.Builder()
-                .optimizationAlgo(OptimizationAlgorithm.STOCHASTIC_GRADIENT_DESCENT).iterations(1)
-                .learningRate(0.1)
-                .rmsDecay(0.95)
                 .seed(12345)
-                .regularization(true)
                 .l2(0.001)
                 .weightInit(WeightInit.XAVIER)
-                .updater(Updater.RMSPROP)
+                .updater(new RmsProp(0.1))
                 .list()
                 .layer(0, new GravesLSTM.Builder().nIn(iter.inputColumns()).nOut(lstmLayerSize)
                         .activation(Activation.TANH).build())
@@ -119,6 +118,7 @@ public class GravesLSTMCharModellingExample {
 
             iter.reset();	//Reset iterator for another epoch
         }
+
         long endTime = System.nanoTime();
         long duration = ((endTime - startTime)/1000000)/(60*1000);
         System.out.println("\n\nExample complete");

@@ -8,45 +8,73 @@ import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.util.stream.Stream;
 
+/** Class to combine all text files (including subdirectories) inside a directory into new output file.
+ *
+ */
 public class TextFileGenerator {
 
-        public static void main(String[] args) throws IOException
-        {
-            //create output file
-            Path output = Paths.get("E:\\Output\\true1.txt");
+    private String outputPath;
+    private String directoryPath;
 
-            if (Files.exists(output)) {
-                Files.delete(output);
-                Files.createFile(output);
-            } else {
-                Files.createFile(output);
+    public TextFileGenerator(String outputPath, String directoryPath) {
+        this.outputPath = outputPath;
+        this.directoryPath = directoryPath;
+    }
+
+    public String getOutputPath() {
+        return outputPath;
+    }
+
+    public void setOutputPath(String outputPath) {
+        this.outputPath = outputPath;
+    }
+
+    public String getDirectoryPath() {
+        return directoryPath;
+    }
+
+    public void setDirectoryPath(String directoryPath) {
+        this.directoryPath = directoryPath;
+    }
+
+    /**
+     * Generates the output text file.
+     * @throws IOException in case reading/writing files occurs.
+     */
+    public void generateTextFiles() throws IOException {
+        //create output file
+        Path output = Paths.get(outputPath);
+
+        if (Files.exists(output)) {
+            Files.delete(output);
+            Files.createFile(output);
+        } else {
+            Files.createFile(output);
+        }
+        //directory of input files to combine
+        Path directory = Paths.get(directoryPath);
+
+        Stream<Path> textFiles = Files.walk(directory)
+                .filter(s -> s.toString().endsWith(".txt"))
+                .map(Path::toAbsolutePath)
+                .sorted();
+
+        // Iterate all files and write to output
+        textFiles.forEach(path -> {
+            Stream<String> lines = null;
+            try {
+                lines = Files.lines(path);
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-            //directory of input files to combine
-            Path directory = Paths.get("E:\\TextFiles\\");
-
-            Stream<Path> textFiles = Files.walk(directory)
-                    .filter(s -> s.toString().endsWith(".txt"))
-                    .map(Path::toAbsolutePath)
-                    .sorted();
-
-            Stream<Path> filesToProcess = Files.list(directory);
-
-            // Iterate all files and write to output
-            textFiles.forEach(path -> {
-                Stream<String> lines = null;
+            lines.forEach(line -> {
+                String lineToWrite = line + System.lineSeparator();
                 try {
-                    lines = Files.lines(path);
+                    Files.write(output, lineToWrite.getBytes(StandardCharsets.UTF_8), StandardOpenOption.APPEND);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-                lines.forEach(line -> {
-                    String lineToWrite = line + System.lineSeparator();
-                    try {
-                        Files.write(output, lineToWrite.getBytes(StandardCharsets.UTF_8), StandardOpenOption.APPEND);
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                });
             });
-        }
+        });
+    }
 }
